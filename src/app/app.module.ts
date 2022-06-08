@@ -7,7 +7,6 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
-import { AdminComponentsModule } from './adminComponents/admin-components.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -21,7 +20,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     IonicModule.forRoot()/*Modulo que nos permite usar lo que hemos instalado de ionic */,
     AppRoutingModule,
     ComponentsModule,
-    AdminComponentsModule,
     FormsModule,
     IonicModule,
     AngularFireModule,

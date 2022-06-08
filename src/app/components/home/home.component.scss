@@ -32,12 +32,6 @@
     transform: rotate(-10deg);
 }
 
-/*para poder cambiar el fondo del item cojo la variable directamente y la sustituyo por el color que quiero*/
-/*ion-item{ //Esto tb sirve pero no lo uso, uso justo el de abajo
-    --ion-background-color: #e8f3f4;
-}
-*/
-
 .item-background-color{
     --ion-item-background:#d7e9e8;
     border-radius: 1.5em;

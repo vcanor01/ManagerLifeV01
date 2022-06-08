@@ -43,12 +43,7 @@ export class RutinaComponent implements OnInit {
     if(this.listarutinas.length>29){
       this.preparado=true;
     }
-    
-    
   }
-  
- 
-    //OBtener las rutinas ya creadas y las ordeno.
     getRutinas(){
       this.rutinaService.getRutinas(this.uid)
       .subscribe(res=>{

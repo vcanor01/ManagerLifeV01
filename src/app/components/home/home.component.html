@@ -10,11 +10,6 @@
           <ion-label class="colorLetraUsuario" [routerLink]="['/editarUsuario', usuarioLogeado.id]">{{usuarioLogeado.nombre}} {{usuarioLogeado.apellidoUno}} {{usuarioLogeado.aprellidoDos}}</ion-label>
         </ion-chip>
 
-  <!--
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
--->
         <ion-buttons slot="end">
           <ion-button (click)="presentActionSheet()">
             <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
@@ -64,44 +59,8 @@
         </ion-card-content>
       </ion-card>
       
-<!--
-      <ion-card button="true" [routerLink]="'/calendario'">
-        <ion-card-header>
-          <ion-card-title class="colorLetraTituloCard">Calendario</ion-card-title>
-          <ion-card-subtitle>¿No sabes en que día vives?</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-item class="item-background-color">
-            <ion-label class="colorLetraLabel">¡Entra aquí!</ion-label>
-            <ion-icon name="calendar-number" slot="end" class="colorIcono"></ion-icon>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
--->      
-        
-    
-<!--
-    <ion-tabs>
-      <ion-tab-bar slot="botton">
-        <ion-tab-button [routerLink]="'/listasCompra'">
-          <ion-icon name="cart"></ion-icon>
-        </ion-tab-button>
-
-        <ion-tab-button  [routerLink]="'/rutina'">
-          <ion-icon name="barbell-outline"></ion-icon>
-        </ion-tab-button>
-
-        <ion-tab-button [routerLink]="'/comidas'">
-          <ion-icon name="fast-food-outline"></ion-icon>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-    -->
-</ion-content>
-
-  
-  </div>
-
+  </ion-content>
+</div>
 
 
 
@@ -113,20 +72,9 @@
         <ion-thumbnail slot="start" class="imagen">
           <img src="assets/icon/logotipo.png" class="ajusteImagen">
         </ion-thumbnail>
-    <!--TITULO-->
         <ion-title >
             Manager Life
         </ion-title>
-    <!--BOTONES DEL MENU-->
-  <!--
-        <ion-buttons slot="start">
-          
-          <ion-button [routerLink]="'/perfilUsuario'">
-            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
-           </ion-button>
-        </ion-buttons>
-  -->
-        <!--Boton para ir a crear usuario-->
         <ion-buttons slot="end">
           <ion-button [routerLink]="'/perfilUsuario'">
               <ion-icon slot="icon-only" name="person-add"></ion-icon>
@@ -151,7 +99,6 @@
           <ion-col class="botonesFormulario">
             <ion-button type="submit" color="primary" class="botonLogin" (click)="logearUsuario()" [routerLink]="'/perfilUsuario'">Entrar</ion-button>
             <ion-button type="submit" color="secondary" class="botonRegistrarse" [routerLink]="'/perfilUsuario'">Registrarse</ion-button>
-           <!--<a style="color:rgb(70, 70, 206); font-size: 11px; margin-top: 2px;" [routerLink]="['/forgot-password']" class="small-text">Olvidé la contraseña</a>--> 
           </ion-col>
         </ion-row>
       </form>

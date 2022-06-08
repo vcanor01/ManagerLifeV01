@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { SetListaCompraComponent } from './adminComponents/set-lista-compra/set-lista-compra.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { ComidaDiariaComponent } from './components/home/comida-diaria/comida-diaria.component';
 import { ComidaHorariosComponent } from './components/home/comida-diaria/comida-horarios/comida-horarios.component';
