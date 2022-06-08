@@ -1,0 +1,28 @@
+.colorIconoBasura{
+    color: var(--ion-color-icono);
+}
+
+.colorIconoEditar{
+    color: var(--ion-color-editarIcono);
+}
+
+.label{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    color: #847c7c;
+    font-size: 14px;
+}
+
+ion-content{
+    //--ion-background-color:var(--ion-color-headerColor);
+    --ion-background-color:#e8f3f4;
+}
+
+
+.imagenAdd{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}

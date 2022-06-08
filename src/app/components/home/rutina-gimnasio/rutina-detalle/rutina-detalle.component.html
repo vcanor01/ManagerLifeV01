@@ -1,0 +1,76 @@
+<ion-header >
+  <ion-toolbar color="headerColor">
+
+    <ion-buttons slot="start">
+        <ion-button [routerLink]="'/rutina'">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+         </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+        Rutina dia {{dia}}
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+      <div style="display: flex;justify-content: flex-end;">
+        <ion-row>
+          <ion-col class="botonesFormulario">
+            <ion-button class="boton" (click)="add()">
+              <ion-icon name="chevron-down-outline" *ngIf="estadoAdd"></ion-icon>
+              <span *ngIf="!estadoAdd">AÑADIR</span> </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+      
+      <div *ngIf="estadoAdd">
+        <ion-item >
+          <ion-label position="floating" class="label">
+            <ion-text >¡ Añade tu ejercicio favorito !</ion-text>
+          </ion-label>
+          <ion-input  type="text" inputmode="text" [(ngModel)]="nuevoEjercicio.nombreEjercicio" (keypress)="eventHandler($event.keyCode)"></ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label position="floating" class="label">
+            <ion-text >¿Cuántos minutos dura este ejercicio?</ion-text>
+          </ion-label>
+          <ion-input  type="number" inputmode="number" [(ngModel)]="nuevoEjercicio.minutos" (keypress)="eventHandler($event.keyCode)"></ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label position="floating" class="label">
+            <ion-text >¿Cuántas series son?</ion-text>
+          </ion-label>
+          <ion-input  type="text" inputmode="text" [(ngModel)]="nuevoEjercicio.series" (keypress)="eventHandler($event.keyCode)"></ion-input>
+        </ion-item>
+        
+      </div>
+
+      
+        <div *ngFor="let ejercicio of listaEjercicios">
+          <ion-card>
+            <ion-card-header>
+              <div class="tituloCards">
+                <ion-card-title color="tertiary">{{ejercicio.nombreEjercicio}} </ion-card-title>
+                <ion-buttons>
+                  <ion-button (click)="editarEjercicio(ejercicio)"><ion-icon name="create"  size="small" class="colorIconoEditar"></ion-icon></ion-button>
+                  <ion-button (click)="borrarEjercicio(ejercicio)"><ion-icon name="trash-sharp" size="small" class="colorIconoBasura"></ion-icon></ion-button>
+                </ion-buttons>
+              </div>
+
+              <ion-card-subtitle>Series: {{ejercicio.series}} --> {{ejercicio.minutos}} minutos</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-content>
+              <ion-label></ion-label>
+            </ion-content>
+
+          </ion-card>
+        </div> 
+
+
+</ion-content>

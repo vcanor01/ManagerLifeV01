@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="headerColor">
+<!--TITULO-->
+    <ion-title >
+        Lista de la compra
+    </ion-title>
+<!--BOTONES DEL MENU-->
+    <ion-buttons slot="start">
+      <!-- BOTON PROGRAMANDO
+      <ion-button (click)="abrirMenu()">
+        <ion-icon slot="icon-only" name="menu-sharp"></ion-icon>
+      </ion-button>
+      -->
+      <!--BOTON DE MENU CON EL COMPONENTE DIRECTAMENTE SIN PROGRAMAR-->
+      <!--<ion-menu-button></ion-menu-button>-->
+      
+        <ion-button [routerLink]="'/listasCompra'">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="document-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- CONTENIDO DE LA PAGINA-->
+<ion-content >
+
+  <!--INPUT PARA METER LOS PRODUCTOS-->
+  <ion-item>
+      <ion-label position="floating" class="label">
+          <ion-icon name="search-sharp" ></ion-icon>
+          <ion-text >¿Qué deseas comprar?</ion-text>
+      </ion-label>
+      <!--Tiene el eventHandler para cuando le demos al enter.-->
+      <ion-input  type="text" inputmode="text" [(ngModel)]="newproducto.nombre" (keypress)="eventHandler($event.keyCode)"></ion-input>
+  </ion-item>
+
+  <!--<ion-button color="medium" expand="full" class="boton">Guardar</ion-button>-->
+
+  <!--ICONO REDONDO DE AÑADIR
+ <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button color="medium" (click)="guardarProducto()">
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+-->
+
+  <!--LISTA DE LOS PRODUCTOS-->
+
+  <ion-item *ngFor="let producto of listaProductos">
+      <input type="checkbox" id="checkColor" [value]="producto.isChecked" [checked]="producto.isChecked" (click)="comprado(producto)">
+       <!--<ion-checkbox slot="start"  [(ngModel)]="producto.isChecked"> </ion-checkbox>-->
+    
+    <ion-label class="colorLetraLabel">{{producto.nombre}}</ion-label>
+    <!--<ion-input type="number" [ngModel]="auxcantidad" (ionChange)=""></ion-input>-->
+    <ion-buttons>
+      <ion-button (click)="editarProducto(producto)"><ion-icon name="create"  size="small" class="colorIconoEditar"></ion-icon></ion-button>
+      <ion-button (click)="eliminarProducto(producto.id)"><ion-icon name="trash-sharp" size="small" class="colorIconoBasura"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="headerColor">
+    <ion-title>
+        Días de la semana
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'/home'">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+       </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen >
+  
+
+  <ion-progress-bar  *ngIf="!preparado" color="primary" type="indeterminate"></ion-progress-bar>
+  <div *ngIf="!preparado" class="pantallaEmpezar" fullscreen>
+    <div style="display:flex ;margin-top: 20%;">
+      <img class="img" src="assets/icon/CargandoComidas.gif">
+    </div>
+  </div>
+  
+
+
+
+<div *ngIf="preparado">
+  <ion-accordion-group value="diasSemana" class="acordeon" >
+    <div *ngFor="let dia of diasSemana">
+      <ion-accordion value="{{dia}}" class="ionAccordionDiasSemana">
+          <ion-item slot="header">
+            <ion-label color="tertiary" class="label">{{dia | uppercase}}</ion-label>
+          </ion-item>
+
+          <ion-list slot="content">
+            <div *ngFor="let horarioComida of comidasTexto">
+              <ion-item [routerLink]="['/comidasHorario',dia,horarioComida]">
+                <ion-label class="labelHorario">{{horarioComida }} </ion-label>
+                <ion-icon name="arrow-forward-sharp" slot="end"></ion-icon>
+              </ion-item>
+            </div>
+          </ion-list>
+      </ion-accordion>
+    </div>
+  </ion-accordion-group>
+  
+</div>
+
+</ion-content>
+

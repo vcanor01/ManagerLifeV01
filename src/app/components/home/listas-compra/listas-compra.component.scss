@@ -1,0 +1,36 @@
+.divTitulo{
+    display: flex;
+    justify-content: space-between;
+}
+
+ion-content{
+    --ion-background-color:#e8f3f4;
+}
+
+ion-card{
+    background: #ffffff;
+}
+
+ion-card-title{
+    font-size: 22px;
+}
+
+.colorLetraTituloCard{
+    color:#61a4bc;
+    
+}
+
+.label{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    color: #847c7c;
+    font-size: 14px;
+}
+
+.imagenAdd{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}

@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="headerColor">
+
+    <ion-title >
+        Listas compra
+    </ion-title>
+
+    <ion-buttons slot="start">
+
+        <ion-button [routerLink]="'/home'">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="nuevaLista()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="imagenAdd" *ngIf="contenido && preparado && !addLista" >
+    <img src="assets/icon/AnadeLista.gif" >
+  </div>
+
+  <ion-progress-bar  *ngIf="!preparado" color="primary" type="indeterminate"></ion-progress-bar>
+  <div *ngIf="!preparado" class="pantallaEmpezar" fullscreen>
+    <div style="display:flex ;margin-top: 20%;">
+      <ion-img  class="img" src="assets/icon/CargandoCompra.gif"></ion-img>
+    </div>
+  </div>
+  
+
+  <div *ngIf="preparado">
+    <ion-item *ngIf="addLista">
+      <ion-label position="floating" class="label">
+        <ion-icon name="search-sharp" ></ion-icon>
+        <ion-text >¡ Pon aquí el nombre de tu nueva lista !</ion-text>
+      </ion-label>
+      <ion-input  type="text" inputmode="text" [(ngModel)]="listaOfListaCompra.nombreLista" (keypress)="eventHandler($event.keyCode)"></ion-input>
+    </ion-item>
+    
+    <div *ngFor="let listas of listaListasCompra">
+      <ion-card >
+        <ion-card-header [routerLink]="['/listaCompra',listas.id]">
+          <div class="divTitulo">
+            <ion-card-title class="colorLetraTituloCard">Lista de {{listas.nombreLista}}</ion-card-title>
+            <ion-icon size="large" color="primary" name="arrow-forward-circle-sharp" ></ion-icon>
+          </div>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-card-subtitle (click)="avisoBorrarLista(listas.id)">
+            Borrar
+          </ion-card-subtitle>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+    <!--
+    <div>
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button [routerLink]="'/home'">
+            <ion-icon name="home"></ion-icon>
+          </ion-tab-button>
+    
+          <ion-tab-button  [routerLink]="'/rutina'">
+            <ion-icon name="barbell-outline"></ion-icon>
+          </ion-tab-button>
+    
+          <ion-tab-button [routerLink]="'/comidas'">
+            <ion-icon name="fast-food-outline"></ion-icon>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+    </div>
+    -->
+
+  
+  
+</ion-content>

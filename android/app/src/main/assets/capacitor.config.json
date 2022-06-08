@@ -1,0 +1,6 @@
+{
+	"appId": "com.virginia.managerlife",
+	"appName": "ManagerLife",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

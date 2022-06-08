@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="headerColor">
+    <ion-title>
+        Editar usuario
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'/home'">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+       </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div style="text-align:center;" [formGroup]="formularioEdicion">
+    <ion-item>
+      <ion-label position="floating" class="label ">
+       
+        <ion-text>Nombre:</ion-text>
+      </ion-label>
+      <ion-input type="text" inputmode="text" formControlName="nombre" required  [value]="usuario.nombre"></ion-input>
+      <span  *ngIf="(this.formularioEdicion.get('nombre')?.errors?.['required']) && (intentoRegistro===true)">Nombre vacio</span>
+      <span *ngIf="(this.formularioEdicion.get('nombre')?.errors?.['maxlength']) && (intentoRegistro===true)">Nombre maximo 50 carácteres</span>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating" class="label ">
+        <ion-text>Primer apellido:</ion-text>
+      </ion-label>
+      <ion-input type="text" inputmode="text"  formControlName="apellidoUno" required [value]="usuario.apellidoUno"></ion-input>
+      <span  *ngIf="(this.formularioEdicion.get('apellidoUno')?.errors?.['required']) && (intentoRegistro===true)">Apellido vacio</span>
+      <span *ngIf="(this.formularioEdicion.get('apellidoUno')?.errors?.['maxlength']) && (intentoRegistro===true)">Apellido maximo 50 carácteres</span>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating" class="label ">
+        <ion-text>Segundo apellido:</ion-text>
+      </ion-label>
+      <ion-input type="text" inputmode="text" formControlName="aprellidoDos" required [value]="usuario.aprellidoDos"></ion-input>
+      <span  *ngIf="(this.formularioEdicion.get('aprellidoDos')?.errors?.['required']) && (intentoRegistro===true)">Apellido vacio</span>
+      <span *ngIf="(this.formularioEdicion.get('aprellidoDos')?.errors?.['maxlength']) && (intentoRegistro===true)">Apellido maximo 50 carácteres</span>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating" class="label ">
+        <ion-text>Email: </ion-text>
+      </ion-label>
+      <ion-input type="text" inputmode="text"  disabled="true" [value]="usuario.email"></ion-input>
+    </ion-item>
+  
+  
+    
+      <ion-item >
+        <ion-label position="floating" class="label ">
+          <ion-text>Contraseña:</ion-text>
+        </ion-label>
+        <ion-input type="password" inputmode="text"  disabled="true" [value]="usuario.pass"></ion-input>
+      </ion-item>
+
+    <ion-button style="text-align:center; margin:10px" (click)="editar()" class="primary" >Editar</ion-button>
+  </div>
+
+
+</ion-content>

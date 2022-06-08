@@ -24,3 +24,78 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Questrial&display=swap');
+@font-face {
+    font-family: 'badink';
+    src: url('assets/fonts/BADINK.TTF');
+}
+
+
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Questrial', sans-serif;
+}
+
+ion-label{
+    --ion-font-family: 'Nanum Gothic', sans-serif;
+    --ion-font-family: 'Questrial', sans-serif;
+}
+.normal{
+    color: white !important;
+    font-size: 14px !important;
+}
+.subtitulo{
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+
+
+.encabezado{
+    margin: 20px;
+    text-align: center;
+}
+
+.titulo{
+    font-size: 25px;
+}
+
+.ion-color-header{
+    --ion-color-base: var(--ion-color-header);
+	--ion-color-base-rgb: var(--ion-color-header-rgb);
+	--ion-color-contrast: var(--ion-color-header-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-header-contrast-rgb);
+	--ion-color-shade: var(--ion-color-header-shade);
+	--ion-color-tint: var(--ion-color-header-tint);
+}
+
+ion-toolbar{
+    background-color: var(--ion-color-headerColor);
+    color: white;
+}
+
+
+//Action sheet del menu de home. Tengo que poner el estilo en el global obligatoriamente
+.estiloSheet {
+    --background: #3B4948;
+    --color:white;
+}
+.action-sheet-button.estiloIconoSheet{ //para cambiar el color de la letra. esa variable la he puesto yo en variables.scss
+    color: var(--ion-color-white);
+}
+
+.estiloIconoSheet{ //para cambiar el color de los iconos.
+    ion-icon{
+        --color:#EC8C6F;
+    }
+    
+}
+
+
+
+
+

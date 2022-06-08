@@ -1,0 +1,46 @@
+<ion-header >
+  <ion-toolbar color="headerColor">
+
+    <ion-buttons slot="start">
+        <ion-button [routerLink]="'/home'">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+         </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+        Rutina gimnasio
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-progress-bar  *ngIf="!preparado" color="primary" type="indeterminate"></ion-progress-bar>
+  <div *ngIf="!preparado" class="pantallaEmpezar" fullscreen>
+    <div style="display:flex ;margin-top: 20%;">
+      <img class="img" src="assets/icon/CargandoLento.gif">
+    </div>
+  </div>
+
+  <div *ngIf="preparado">
+    <div *ngFor="let rutina of listarutinas; let pos = index">
+      <ion-card >
+        <ion-card-header>
+          <div class="divTitulo">
+           <!-- <ion-card-title color="dark" >{{pos+1}}º DIA </ion-card-title>*/-->
+            <ion-card-title color="tertiary" >{{rutina.dia}}º DIA </ion-card-title>
+            <ion-icon name="arrow-forward-circle-sharp" size="large" color="primary" [routerLink]="['/rutinaDetalle',rutina.dia,rutina.id]"></ion-icon>
+          </div>
+          <ion-card-subtitle> </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-buttons class="grupoBotonEmpezar">
+            <ion-button class="botonEmpezar" [routerLink]="['/rutinaDetalle',rutina.dia,rutina.id]">INICIAR</ion-button>
+          </ion-buttons>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+  </div>
+</ion-content>

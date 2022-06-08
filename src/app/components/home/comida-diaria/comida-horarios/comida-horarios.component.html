@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="headerColor">
+    <ion-title>
+      {{dia}} - {{horarioComida}}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'/comidas'">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+       </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="cambiarEstado()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="imagenAdd" *ngIf="contenido && !addComida">
+    <img src="assets/icon/AnadeComida.gif" >
+  </div>
+  <!--Boton para añadir y apararicion del input-->
+  <ion-item *ngIf="addComida">
+    <ion-label position="floating" class="label">
+      <ion-icon name="search-sharp" ></ion-icon>
+      <ion-text >¡ Añade aquí lo que quieras !</ion-text>
+    </ion-label>
+    <ion-input  type="text" inputmode="text" [(ngModel)]="nuevaComida.nombre" (keypress)="eventHandler($event.keyCode)"></ion-input>
+  </ion-item>
+      
+        <ion-item *ngFor="let comida of listaComidas">
+            <ion-label>{{comida.nombre}}</ion-label>
+            <ion-buttons>
+              <ion-button (click)="editarComida(comida)"><ion-icon name="create"  size="small" class="colorIconoEditar" ></ion-icon></ion-button>
+              <ion-button (click)="borrarComida(comida.id)"><ion-icon name="trash-sharp" size="small" class="colorIconoBasura" ></ion-icon></ion-button>
+            </ion-buttons>
+        </ion-item>
+</ion-content>

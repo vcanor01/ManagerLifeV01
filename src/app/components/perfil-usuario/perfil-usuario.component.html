@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="headerColor">
+    <ion-title>
+        Perfil de usuario
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'/home'">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+       </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+  <!------------------------TEMPLATE CUANDO NO ESTAMOS LOGEADOS Y NOS QUEREMOS REGISTRAR----------------------------->
+  
+  <div style="text-align:center; margin:10px" *ngIf="!uid.length" [formGroup]="formularioRegistro" >
+    <ion-item>
+      <ion-label position="floating" class="label ">
+        <ion-text>Nombre:</ion-text>
+      </ion-label>
+      <ion-input type="text" inputmode="text" formControlName="nombre" required ></ion-input>
+      <span  *ngIf="(this.formularioRegistro.get('nombre')?.errors?.['required']) && (intentoRegistro===true)">Nombre vacio</span>
+      <span *ngIf="(this.formularioRegistro.get('nombre')?.errors?.['maxlength']) && (intentoRegistro===true)">Nombre maximo 50 carácteres</span>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating" class="label ">
+        <ion-text>Primer apellido:</ion-text>
+      </ion-label>
+      <ion-input type="text" inputmode="text"  formControlName="apellidoUno" required ></ion-input>
+      <span  *ngIf="(this.formularioRegistro.get('apellidoUno')?.errors?.['required']) && (intentoRegistro===true)">Apellido vacio</span>
+      <span *ngIf="(this.formularioRegistro.get('apellidoUno')?.errors?.['maxlength']) && (intentoRegistro===true)">Apellido maximo 50 carácteres</span>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating" class="label">
+        <ion-text>Segundo apellido:</ion-text>
+      </ion-label>
+      <ion-input type="text" inputmode="text"  formControlName="aprellidoDos" required > </ion-input>
+      <span *ngIf="(this.formularioRegistro.get('aprellidoDos')?.errors?.['required']) && (intentoRegistro===true)">Apellido vacio</span>
+      <span *ngIf="(this.formularioRegistro.get('aprellidoDos')?.errors?.['maxlength']) && (intentoRegistro===true)">Apellido maximo 50 carácteres</span>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating" class="label ">
+        <ion-text>Email:</ion-text>
+      </ion-label>
+      <ion-input type="text" inputmode="text"  formControlName="email" required ></ion-input>
+      <span *ngIf="this.formularioRegistro.get('email')?.errors?.['email'] && (intentoRegistro===true)">Email no valido</span>
+      <span *ngIf="this.formularioRegistro.get('email')?.errors?.['required'] && (intentoRegistro===true)">Email vacio</span>
+    </ion-item>
+  
+      <ion-item >
+        <ion-label position="floating" class="label ">
+          <ion-text>Contraseña:</ion-text>
+        </ion-label>
+        <ion-input type="password" inputmode="text" formControlName="pass" required  ></ion-input>
+      </ion-item>
+      <span  *ngIf="(this.formularioRegistro.get('pass')?.errors?.['required']) && (intentoRegistro===true)">Contraseña vacia</span>
+      <span *ngIf="(this.formularioRegistro.get('pass')?.errors?.['minlength']) && (intentoRegistro===true)">Minimo 6 carácteres</span>
+
+    <ion-button style="text-align:center; margin:40px" type="submit" class="primary" (click)="registrarUsuario()">Registrarse</ion-button>
+  </div>
+</ion-content>

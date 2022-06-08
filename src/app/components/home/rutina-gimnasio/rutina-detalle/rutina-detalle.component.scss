@@ -1,0 +1,41 @@
+.boton{
+    background:#d07b62;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.botonesFormulario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+ion-content{
+    --ion-background-color:#e8f3f4;
+}
+
+.label{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    color: #847c7c;
+    font-size: 14px;
+    
+}
+
+.tituloCards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.colorIconoBasura{
+    color: var(--ion-color-icono);
+}
+
+.colorIconoEditar{
+    color: var(--ion-color-editarIcono);
+}
